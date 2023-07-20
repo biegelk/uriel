@@ -64,8 +64,6 @@ class SequenceManager(object):
             self.status = -1
 
         self.valid_inputs = links
-        with open("log.out", "a") as outfile:
-            outfile.write(str(self.valid_inputs))
 
         self.win.w.refresh()
 
