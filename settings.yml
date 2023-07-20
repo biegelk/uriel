@@ -1,5 +1,6 @@
 files:
   sequences: "./adventure_tree_data.yml"
+  log: "./log.out"
 
 display:
   w_width: 80
