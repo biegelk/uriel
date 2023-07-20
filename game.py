@@ -1,11 +1,11 @@
 import curses
 import yaml
-import data_manager as dm
-import interface as intf
-import sequence_manager as sm
+import data_manager
+import interface
+import sequence_manager
 
 
-def run_game(settings, gdm, gi, gsm):
+def run_game(settings, dm, gi, sm):
     # Set our starting state variable ("return code") to 0
     rc = 0
 
@@ -22,7 +22,7 @@ def run_game(settings, gdm, gi, gsm):
             rc = gi.show_menu()
 
         if c == "t":
-            gsm.run_sequence("entering_inn_conv")
+            sm.run_sequence("entering_inn_conv")
 
 
 
@@ -31,16 +31,16 @@ def main(stdscr):
     settings = yaml.load(open("./settings.yml", "r"), Loader=yaml.FullLoader)
 
     # Initialize the game's data manager
-    gdm = dm.DataManager(settings["files"])
+    dm = data_manager.DataManager(settings["files"])
 
     # Initialize the interface object
-    gi = intf.Interface(stdscr, settings["display"])
+    gi = interface.Interface(stdscr, settings["display"])
 
     # Initialize the sequence manager
-    gsm = sm.SequenceManager(stdscr, gi.tw, gdm.stree_data)
+    sm = sequence_manager.SequenceManager(stdscr, gi.tw, dm.stree_data)
 
     # Run the game
-    run_game(settings, gdm, gi, gsm)
+    run_game(settings, dm, gi, sm)
 
 
 if __name__ == "__main__":
