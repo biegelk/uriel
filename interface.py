@@ -8,8 +8,9 @@ sw_height = 1
 
 class Interface(object):
 
-    def __init__(self, stdscr):
+    def __init__(self, stdscr, display_settings):
         self.stdscr = stdscr
+        self.settings = display_settings
 
         self.show_splash()
 
@@ -23,7 +24,7 @@ class Interface(object):
     def hold(self):
         try:
             # Preserve the status window's original contents
-            prev_msg = self.sw.w.instr(0, 0, w_width-2)
+            prev_msg = self.sw.w.instr(0, 0, self.settings.w_width - 2)
 
             # Wait for the user to prompt execution to continue
             self.sw.refmsg("HOLD: press k to move on")
@@ -54,29 +55,29 @@ class Interface(object):
     def create_windows(self):
         cline = 0
 
-        self.d0 = cursesWindow(1, w_width, cline, 0)
-        self.d0.refmsg("-"*(w_width - 1))
+        self.d0 = cursesWindow(1, self.settings["w_width"], cline, 0)
+        self.d0.refmsg("-"*(self.settings["w_width"] - 1))
         cline += 1
 
-        self.mw = cursesWindow(mw_height, w_width, cline, 0)
-        cline += mw_height
+        self.mw = cursesWindow(self.settings["mw_height"], self.settings["w_width"], cline, 0)
+        cline += self.settings["mw_height"]
 
-        self.d1 = cursesWindow(1, w_width, cline, 0)
-        self.d1.refmsg("-"*(w_width - 1))
+        self.d1 = cursesWindow(1, self.settings["w_width"], cline, 0)
+        self.d1.refmsg("-"*(self.settings["w_width"] - 1))
         cline += 1
 
-        self.tw = cursesWindow(tw_height, w_width, cline, 0)
-        cline += tw_height
+        self.tw = cursesWindow(self.settings["tw_height"], self.settings["w_width"], cline, 0)
+        cline += self.settings["tw_height"]
 
-        self.d2 = cursesWindow(1, w_width, cline, 0)
-        self.d2.refmsg("-"*(w_width - 1))
+        self.d2 = cursesWindow(1, self.settings["w_width"], cline, 0)
+        self.d2.refmsg("-"*(self.settings["w_width"] - 1))
         cline += 1
 
-        self.sw = cursesWindow(sw_height, w_width, cline, 0)
-        cline += sw_height
+        self.sw = cursesWindow(self.settings["sw_height"], self.settings["w_width"], cline, 0)
+        cline += self.settings["sw_height"]
 
-        self.d3 = cursesWindow(1, w_width, cline, 0)
-        self.d3.refmsg("-"*(w_width - 1))
+        self.d3 = cursesWindow(1, self.settings["w_width"], cline, 0)
+        self.d3.refmsg("-"*(self.settings["w_width"] - 1))
 
 
     def show_menu(self):

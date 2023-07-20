@@ -1,0 +1,24 @@
+entering_inn_conv:
+  start:
+    msg: "Welcome, traveler."
+    destinations:
+      2: "Who are you?"
+      3: "Greetings, innkeeper."
+
+  2:
+    msg: "I am the innkeeper of the Sleeping Dragon. What is your name?"
+    destinations:
+      4: "Arthur Pendragon."
+      5: "Merlin."
+
+  3: 
+    msg: "What is your name?"
+    destinations:
+      4: "Arthur Pendragon."
+      5: "Merlin."
+
+  4:
+    msg: "Wow, same."
+
+  5:
+    msg: "Haha, magic is for nerds."

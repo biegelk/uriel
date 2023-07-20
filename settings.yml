@@ -1,0 +1,8 @@
+files:
+  sequences: "./adventure_tree_data.yml"
+
+display:
+  w_width: 80
+  mw_height: 30
+  tw_height: 10
+  sw_height: 1
