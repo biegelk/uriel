@@ -1,6 +1,7 @@
 import os
 import pandas
 import yaml
+import game_objects
 
 
 class DataManager(object):
@@ -10,6 +11,8 @@ class DataManager(object):
         if "log" in file_dict.keys():
             self.logfile = file_dict["log"]
             self.initialize_logfile()
+        if "object_library" in file_dict.keys():
+            self.initialize_object_library()
 
 
     def initialize_sequences(self, sequences_file):
@@ -27,3 +30,9 @@ class DataManager(object):
 
         with open(self.logfile, "a") as outfile:
             outfile.write("Log file:\n")
+
+
+    def initialize_object_library(self):
+        self.o = game_objects.ObjectUniverse(file_dict["object_library"])
+
+
