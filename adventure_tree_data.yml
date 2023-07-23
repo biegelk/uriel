@@ -1,4 +1,6 @@
 entering_inn_conv:
+  meta:
+    speaker: Innkeeper
   start:
     msg: "Welcome, traveler."
     destinations:
