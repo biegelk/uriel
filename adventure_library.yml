@@ -1,0 +1,17 @@
+sword:
+    name: "sword"
+    short_desc: "It is a sword."
+    long_desc: "It is a swooooooooooooooooooooooooooooooooooooooooooooooooooooooord."
+    weight: 3
+
+cube:
+    name: "Companion Cube"
+    short_desc: "It is a cube."
+    long_desc: "It is a cube, apparently made of poorly-cast aluminum. A malformed heart is inscribed on each face."
+    weight: 0.6
+
+apple:
+    name: "apple"
+    short_desc: "It is an apple."
+    long_desc: "It is an organic honeycrisp apple."
+    weight: 0.5
