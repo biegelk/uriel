@@ -42,10 +42,10 @@ class InteractableEntity(object):
     def give(self, thing):
         self.log_interaction(0)
 
-        if type(thing) == go.GameObject:
+        if type(thing) == go.GameObject and thing.exists:
             self.inventory.append(thing)
             msg = "hmm, interesting"
         else:
-            msg = "what is this? it doesn't look like anything to me."
+            msg = "sorry, I'm not licensed to handle non-corporeal objects."
 
         print(msg)
