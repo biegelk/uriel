@@ -1,11 +1,5 @@
 import curses
 
-w_width = 80
-mw_height = 30
-tw_height = 10
-sw_height = 1
-
-
 class Interface(object):
 
     def __init__(self, stdscr, display_settings):
