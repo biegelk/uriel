@@ -1,14 +1,32 @@
 import pandas as pd
 import game_objects as go
 
+class EntityUniverse(object):
+    def __init__(self, library):
+        self.library = {}
+        self.manifest = {}
+
+        if type(library) == str:
+            library_data = yaml.load(open(library, "r"), Loader=yaml.FullLoader)
+        elif type(library) == dict:
+            library_data = library
+
+        for key in library_data.keys():
+            self.library[key] = InteractableEntity(library_data[key])
+
+
+
 class InteractableEntity(object):
-    def __init__(self, name, init_sentiment):
-        self.name = name
-        self.sentiment = init_sentiment
+    def __init__(self, input_data):
+        self.name = input_data["name"]
+        self.sentiment = input_data["init_sentiment"]
+
+        if "inventory" in input_data.keys():
+            self.inventory = input_data["inventory"]
+        else:
+            self.inventory = []
 
         self.hist = pd.DataFrame(columns=["num", "sentiment_effect"])
-
-        self.inventory = []
 
 
     def log_interaction(self, sentiment_effect):
