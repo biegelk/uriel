@@ -47,7 +47,7 @@ class SequenceManager(object):
 
         cline = 2
 
-        links = {}
+        links = {"k": None}
 
         if "destinations" in self.cnode.keys():
             i = 0
@@ -60,7 +60,6 @@ class SequenceManager(object):
 
         else:
             self.win.w.addstr(cline, 0, "[press k to move on]")
-            links["k"] = None
             self.status = -1
 
         self.valid_inputs = links
