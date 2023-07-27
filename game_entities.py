@@ -36,7 +36,6 @@ class InteractableEntity(object):
         }
 
 
-
     def compliment(self):
         self.sentiment += 1
 
