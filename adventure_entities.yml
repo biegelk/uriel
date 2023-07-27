@@ -1,0 +1,6 @@
+innkeeper:
+  name: Innkeeper
+  init_sentiment: 10
+  inventory:
+    - ale
+    - wine
