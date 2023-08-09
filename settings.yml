@@ -1,5 +1,6 @@
 files:
   sequences: "./adventure_tree_data.yml"
+  entities: "./adventure_entities.yml"
   log: "./log.out"
 
 display:
