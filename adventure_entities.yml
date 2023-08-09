@@ -4,3 +4,6 @@ innkeeper:
   inventory:
     - flagon of ale
     - glass of wine
+  offered_node:
+    subtree_name: entering_inn_conv
+    node: start
