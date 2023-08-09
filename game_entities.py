@@ -1,4 +1,5 @@
 import pandas as pd
+import yaml
 import game_objects as go
 
 class EntityUniverse(object):
