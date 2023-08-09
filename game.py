@@ -3,6 +3,7 @@ import yaml
 import data_manager
 import interface
 import sequence_manager
+import game_entities
 
 
 def run_game(settings, dm, gi, sm):
